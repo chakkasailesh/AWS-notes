@@ -1,0 +1,62 @@
+Amazon VPC:
+->Amazon Virtual Private Cloud (Amazon VPC) provides a logically isolated area of the AWS cloud where you can launch 
+AWS resources in a virtual network that you define
+->This virtual networking environment gives you full control and allows you to choose your own IP Address range, Subnets, 
+Route Table configuration, Network gateways and much more
+->A VPC is a private network in the AWS cloud, which is a regional resource. So, the scope of a VPC is within the AWS region in which it was created.
+->VPC’s are associated with a Private CIDR range of either an IPv4 address or IPv6.
+->VPC’s are divided into sub-networks or subnets, which spans across an Availability Zone in the region.
+->Each subnet has its own CIDR IP range which is a subset of the VPC CIDR range.
+->Instances are launched into any one of the subnets and are allocated a Private within the IP range of the subnet.
+->VPC’s have a router and a route table attached to the subnets, which allows to control the flow of traffic based on the routing rules defined.
+->Since VPC’s are private networks, to enable access to the Internet, an Internet Gateway is attached to the VPC.
+->VPC’s have Network Access Control Lists or NACLs at the subnet level to control the Inbound and Outbound traffic to them
+
+Route Table:
+->When a VPC is created, a Route Table called as the Main Route Table gets created along with it.
+->All the Subnets in a VPC are implicitly associated with this Main Route Table.
+->The Route table comprises of a set of rules, called as routes that determine the flow of network traffic from your subnet. 
+It is controlled by an Implicit VPC router.
+->Custom Route Tables can also be created, and it can be associated with a subnet of choice. One Subnet can be associated with only a single Route Table
+
+Internet Gateway:
+->Internet Gateway is a VPC Component which is highly available, redundant and horizontally scalable.
+->It allows communication between the VPC and the internet.
+->It provides a target which can be added in the VPC route table for enabling internet-routable-traffic
+
+If a subnet is associated with a route table that has a route to the internet via the Internet Gateway, then the subnet is known as a Public Subnet
+
+Security Group(Default – All Inbound traffic blocked; all Outbound traffic allowed):
+->Security Groups act like a virtual firewall for the EC2 Instances.
+->When an EC2 Instance is launched within a subnet in a VPC, it is associated with a Security Group which is a virtual firewall.
+->Security Groups, control the Inbound and Outbound traffic to and from the Instance.
+->Security Groups, support only Allow rules, not deny rules.
+->Security Groups are stateful, which means if a request is sent from an instance outbound, then the response traffic is allowed to flow back in regardless of the
+inbound rules.
+->One Security Group can be attached to multiple Instances.
+->Security Groups are components of VPC, and they are specific to the VPC in which it was created
+
+NACL:
+->Network Access Control Lists or (NACLs) are optional security layer for the VPC, using which the Inbound and outbound traffic of subnets can be controlled.
+->When a VPC is created, a NACL is created along with it called as the default NACL. All subnets within the VPC are implicitly associated with
+this default NACL, unless explicitly associated with any other.
+->The default NACL, allows all Inbound and Outbound traffic to and from the subnet.
+->One subnet can be associated with only one NACL, but one NACL can be associated with multiple subnets.
+->NACLs support both allow and deny rules.
+->NACLs are stateless, which implies, that response to allowed inbound traffic is dependent on rules defined outbound and vice-versa. It
+signifies that responses to inbound and outbound traffic must be explicitly allowed.
+->Every NACL Rule has a number associated with it. NACL’s rules are evaluated based on the rule number assigned to them, starting with
+the lowest rule number. Rules with lower number are applied, regardless of any other rule with a higher number contradicting it
+
+comparison between NACLs and Security Groups:
+->NACLs are resources applied at the subnet level, whereas security groups are applied at the instance level.
+->NACLs supports both Allow and Deny action for rules, whereas Security Groups support only Allow rules.
+->NACLs are stateless, whereas Security Groups are stateful.
+->NACL rules are evaluated based on the rule number assigned to them, whereas in security groups, all rules are evaluated to allow a traffic.
+->NACLs are implicitly applied to all instances in the subnet in which they are associated, whereas Security Groups must be explicitly attached to an Instance
+
+NAT Gateway
+->NAT Gateways are VPC components which allow, instances in the private subnet to communicate to the internet or other AWS services, but prevent the internet from
+initiating an incoming connection with those instances.
+->NAT Gateways are auto-scaled and support bandwidth from 5Gbps to 45Gbps. NAT Gateways support, TCP, UDP and ICMP protocols
+->NAT Gateways are created in a public subnet. NAT Gateways have to be associated with an Elastic IP address

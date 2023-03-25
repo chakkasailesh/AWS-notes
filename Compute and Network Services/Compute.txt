@@ -1,0 +1,137 @@
+EC2(IaaS):
+->Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) Cloud
+->Secure and resizable compute capacity for virtually any workload
+->an EC2 is a virtual machine that represents a physical server for you to deploy your applications.
+->Instead of purchasing your own hardware and connecting it to a network, Amazon gives you nearly unlimited virtual machines to run your applications while they take care of the hardware
+
+EC2 features:
+->customized OS - AMI
+->Data Storage - EBS volumes
+->Auto Scaling Groups
+->Load Balancer
+
+Amazon Machine Images:
+->provides the information required to launch an instance
+->includes OS and any additional software required
+->AMI ID is specific to a region
+
+Instance types:
+->General Purpose (balanced compute, memory, networking)
+->Compute optimized (High performance processors - batch processing, Scientific Modelling, Compute Intensive applications)
+->Memory optimized (memory intensive workloads - big data analytics, in-memorydatabases)
+->Accelerated Computing Instance (provide hardware acceleration with the use of GPUs - Machine or Deep learning, seismic analysis, High floating-point workloads)
+->Storage optimized (high sequential readand write access, random IOPS with low-latency disk performance - NoSQL databases, data warehousing or workloads requiring high disk performance)
+
+Instance launch types:
+->On-Demand Instances (pay for the compute capacity used by the duration, and there are no long-term commitments - short-term workloads or irregular workloads)
+->Reserved Instances (predictable and long running workloads which span typically greater than a year)
+->Spot Instances (unused EC2 instances in an availability zone at lower price - various workloads which are stateless, 
+fault-tolerant, test & development workloads, and workloads which are resistance to interruptions)
+
+EC2 Instance Tenancy:
+->Shared (default - physical hardware of the EC2 instances is shared with other AWS customers, but your EC2 instances run in full isolation with other EC2 instances)
+->Dedicated Hosts (entire physical server for use to launch EC2 instances, Full visibility into the sockets and physical cores)
+->Dedicated Instances (physical server is not shared with other AWS users but may be shared with instances in the same AWS account)
+
+EC2 Instance storage:
+->EBS Volumes (persistent and durable block level storage)
+->Instance store volumes (temporary block level storage for the Instances)
+
+EC2 placement groups:
+Default behavior – Instances spread across underlying hardware in an AZ
+->Cluster (instances to be tightly grouped in an AZ, low-latency network performance)
+->Partition (spread instances across logical partitions such that groups of instances in one partition do not share the underlying hardware with other groups, 
+suited for distributed and replicated workloads such as Hadoop, Kafka, etc)
+->Spread (strictly places a group of instances across distinct underlying hardware to reduce correlated failures)
+
+Security Groups:
+a virtual firewall called Security Group envelopes the instance which control the traffic of the EC2 instances using Inbound and Outbound rules
+
+Auto Scaling Group:
+->Autoscaling service allows to maintain high availability of your application by automatically adding or removing EC2 instances
+->Ensure High Availability, Improve Fault Tolerance, and Lower Costs
+->Minimum size of the Autoscaling Group ensures that the number of EC2 instances in the group never goes below that size.
+->Desired capacity of the Group can be set, to ensure that the Auto scaling Group has that many instances at a given point of time.
+->Maximum size of the Auto scaling group, controls the maximum number of EC2 instances to which the group can scale.
+
+Launch Configuration:
+->A launch configuration is a set of configuration settings for an instance which the autoscaling group uses to launch EC2 instances
+->Launch configurations cannot be modified after creation
+• Amazon Machine Image (AMI) ID,
+• Instance type,
+• Key pair,
+• Security Groups,
+• Block device mapping,
+• EC2 User data if any,
+• and other Instance configuration parameter
+
+Launch Template:
+Launch Templates provides the below set of additional features which are not supported in Launch Configurations
+• Create multiple versions of a Launch Template.
+• Use Spot, On-demand or Dedicated Host Launch Type for the Instances.
+• Specify multiple instance types
+
+Autoscaling provides 3 options for Scaling:
+• Manual Scaling (change the size of an Auto Scaling Group manually)
+• Dynamic Scaling (specify scaling policies to scale your Auto Scaling Group in response to demand - CPU utilization)
+• and Scheduled Scaling (Scaling actions for the Auto Scaling Group are automatically performed as a function of time and date)
+
+ELB:
+->Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets and virtual appliances(such as EC2 Instances, 
+containers, IP Addresses, and Lambda Functions) in one or more Availability Zones (AZs).
+
+Types of ELB:
+->Application Load Balancer, which is a Layer 7 load balancer and is suited for web applications with HTTP and HTTPS traffic.
+->Network Load Balancer, which is a Layer 4 load balancer and is used for providing ultra high performance for TCP and UDP traffic.
+->Gateway load balancer, which is a Layer 3 load balancer which listens for IP Packets.
+->Classic Load Balancer is a previous generation load balancer for HTTP, HTTPS and TCP traffic
+
+Elastic Beanstalk(PaaS):
+->Elastic Beanstalk is a service for deploying and scaling web applications and services
+->developers upload their application code, service automatically takes care of resource provisioning, load balancing, auto-scaling and monitoring etc.,
+
+Elastic Beanstalk concepts:
+->Application (logical collection of other Beanstalk components which include, environments, versions and environment configurations.
+Conceptually an application in beanstalk is similar to a folder)
+->Application Version (points to an iteration of deployable code for web application. The application versions are kept in a S3 bucket created by beanstalk)
+->Environment (collection of AWS resources which beanstalk provisions to run your application version. Resources include EC2 Instances, Auto - Scaling Groups etc.,)
+->Environment tier (determines the type of AWS resources to be provisioned.Environment tier are of 2 types – Web Environment Tier for HTTP(S) applications and
+Worker Environment Tier for backend applications)
+->Environment configuration (specify a collection of parameters and settings, which defines how the provisioned environment is created and behaves.
+Configuration settings include – EC2 Instance Type, Networking, Storage etc.,)
+->Saved configuration (allows you to save environment configuration in the form of a template, it is referred to as Configuration templates)
+->Platform ( entire collection of Operating system, Programming Language Runtime, Web and applications servers and other Beanstalk components)
+
+AWS Lambda(FaaS):
+->AWS Lambda is a serverless, event-driven compute service that lets you run code for virtually any type of application 
+or backend service without provisioning or managing servers
+->Serverless is a cloud computing application development and execution model that enables developers to build and run application 
+code without provisioning or managing servers or backend infrastructure
+
+AWS Batch:
+->AWS Batch is a fully managed batch computing service that plans, schedules, and runs your containerized batch or ML workloads across the full range 
+of AWS compute offerings, such as Amazon ECS, Amazon EKS, AWS Fargate, and Spot or On-Demand Instances
+
+AWS LightSail:
+->Compute Service which offers VM’s, Popular Application Stacks , Storage, databases at Predictable Prices
+->Ideal for simpler workloads, quick deployments and getting started on AWS. Designed to start small, and scale as you grow
+
+AWS Outposts(ITaaS):
+->AWS Outposts is a family of fully managed solutions delivering AWS infrastructure and services to virtually 
+any on-premises or edge location for a truly consistent hybrid experience
+->supports Compute, Storage, database and other Cloud Services to run locally.
+->Outposts is ideal for workloads that require low latency access to on-premises systems
+
+AWS Wavelength:
+AWS Wavelength embeds AWS compute and storage services within 5G networks, providing mobile edge computing infrastructure for developing, 
+deploying, and scaling ultra-low-latency applications
+
+AWS Region:
+->An AWS Region is a cluster of data centers in a specific geographic area, such as the Northeastern United States or Western Europe
+->Each AWS Region consists of a minimum of three, isolated, and physically separate AZs within a geographic area
+
+AWS Availability Zone:
+->An AZ is a standalone data center or set of data centers within a Region. Each AZ operates independently, so a failure in one won't affect others
+
+AWS Local Zones:
+->A Local Zone is an extension of an AWS Region that is geographically close to your users
