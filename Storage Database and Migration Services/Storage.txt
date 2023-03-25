@@ -32,3 +32,38 @@ and the objects in it. Only the bucket owner can associate a policy with a bucke
 
 EFS(Amazon Elastic File System):
 ->provides serverless, fully elastic file storage so that you can share file data without provisioning or managing storage capacity and performance
+->Multiple compute instances, including Amazon EC2, Amazon ECS, and AWS Lambda, can access an Amazon EFS file system at the same time
+
+EFS Storage classes:
+->Standard storage classes – EFS Standard and EFS Standard–Infrequent Access (Standard–IA), which offer Multi-AZ resilience 
+and the highest levels of durability and availability.
+->One Zone storage classes – EFS One Zone and EFS One Zone–Infrequent Access (EFS One Zone–IA), which offer you the choice of 
+additional savings by choosing to save your data in a single Availability Zone.
+
+FSx:
+Highly-performant, Fully managed, and Reliable file system
+• Windows File Server:Fully managed, highly reliable, and scalable file storage. Accessible over SMB protocol. Built on Windows Server
+• Lustre:Fully managed, cost-effective, high-performance storage
+• NetApp
+• ONTAP
+• OpenZFS
+
+EBS volume:
+->durable, block-level storage device. After you attach a volume to an instance, you can use it as you would use a physical hard drive
+->You can use EBS volumes as primary storage for data that requires frequent updates, such as the system drive for an instance or storage for a database application
+->Attached only to one instance at a time. Volumes can be backed-up as snapshots
+->You can attach multiple EBS volumes to a single instance. The volume and instance must be in the same Availability Zone
+->General Purpose SSD (gp2 and gp3), Provisioned IOPS SSD (io1 and io2), Throughput Optimized HDD (st1), Cold HDD (sc1), and Magnetic (standard)
+
+EBS Snapshot:
+• Save point-in-time snapshots of your volumes to Amazon S3. Incremental backups of EBS volumes
+• New volumes and instances can be created from snapshots. Region Specific. Can be shared across AWS accounts
+
+Storage Gateway:
+->set of hybrid cloud storage services that provide on-premises access to virtually unlimited cloud storage.
+->Move backups to the cloud. Use on-premises file share backed up by cloud storage. Low latency access to data in AWS
+->Types:File, Tape, Volume Gateway
+
+AWS Backup:
+->fully-managed service that makes it easy to centralize and automate data protection across AWS services, in the cloud, and on premises. 
+->Using this service, you can configure backup policies and monitor activity for your AWS resources in one place.
