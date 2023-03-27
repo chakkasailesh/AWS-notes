@@ -1,0 +1,39 @@
+RDS:
+->Amazon Relational Database Service is a web service that makes it easier to set up, operate, and scale a relational database in the AWS Cloud. 
+->It provides cost-efficient, resizable capacity for an industry-standard relational database and manages common database administration tasks.
+->Engines: Amazon Aurora with MySQL compatibility, Amazon Aurora with PostgreSQL compatibility, MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server
+
+Amazon DynamoDB:
+->Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale. 
+->DynamoDB offers built-in security, continuous backups, automated multi-Region replication, in-memory caching, and data import and export tools.
+
+ElastiCache:
+->Amazon ElastiCache makes it easy to set up, manage, and scale distributed in-memory cache environments in the AWS Cloud. 
+->It provides a high performance, resizable, and cost-effective in-memory cache. ElastiCache works with both the Redis and Memcached engines.
+
+Amazon Neptune:
+->fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets. 
+->The core of Neptune is a purpose-built, high-performance graph database engine that is optimized for storing billions of relationships 
+and querying the graph with milliseconds latency. 
+->Neptune supports the popular graph query languages Apache TinkerPop Gremlin and W3C’s SPARQL. 
+->Neptune powers graph use cases such as recommendation engines, fraud detection, knowledge graphs, drug discovery, and network security
+
+Amazon Redshift:
+->Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse service that makes it simple and cost-effective to efficiently 
+analyze all your data using your existing business intelligence tools. 
+->It is optimized for datasets ranging from a few hundred gigabytes to a petabyte or more and costs less than $1,000 per terabyte per year.
+
+Amazon Quantum Ledger Database(QLDB):
+->fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log owned by a central trusted authority. 
+->You can use Amazon QLDB to track all application data changes, and maintain a complete and verifiable history of changes over time
+
+Amazon DocumentDB:
+->fast, reliable, and fully managed database service that makes it easy for you to set up, operate, and scale MongoDB-compatible databases.
+
+Amazon Keyspaces:
+->scalable, highly available, and managed Apache Cassandra–compatible database service
+
+Amazon Timestream:
+->fast, scalable, fully managed, purpose-built time series database that makes it easy to store and analyze trillions of time series data points per day. 
+->Timestream saves you time and cost in managing the lifecycle of time series data by keeping recent data in memory and moving historical data 
+to a cost optimized storage tier based upon user defined policies
